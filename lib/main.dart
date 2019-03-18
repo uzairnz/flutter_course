@@ -6,11 +6,16 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: ThemeData(
+        primarySwatch: Colors.deepOrange,
+        accentColor: Colors.deepPurple,
+        brightness: Brightness.light
+      ),
       home: Scaffold(
         appBar: AppBar(
           title: Text('Food App'),
         ),
-        body: ProductManager(),
+        body: ProductManager(startingProduct: 'Food Tester',),
       ),
     );
   }
