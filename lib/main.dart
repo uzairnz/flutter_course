@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       //debugShowMaterialGrid: true, //for grid
       theme: ThemeData(
-          primarySwatch: Colors.deepOrange,
+          primarySwatch: Colors.blueGrey,
           accentColor: Colors.deepPurple,
           brightness: Brightness.light),
       home: Scaffold(
