@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 // import 'package:flutter/rendering.dart';
-import './products_manager.dart';
+import './pages/home.dart';
 
 void main() {
   // debugPaintSizeEnabled =true;
@@ -18,12 +18,7 @@ class MyApp extends StatelessWidget {
           primarySwatch: Colors.blueGrey,
           accentColor: Colors.deepPurple,
           brightness: Brightness.light),
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text('Food App'),
-        ),
-        body: ProductManager(),
-      ),
+          home: HomePage(),
     );
   }
 }
