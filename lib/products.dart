@@ -21,9 +21,9 @@ class Products extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     print('[Product Widget] Built');
-    return ListView.builder(
+    return products.length > 0 ?  ListView.builder(
       itemBuilder: _buildProductItem,  // context & index number 
       itemCount: products.length,  // How many products
-    );
+    ) :Center(child: Text('No product found, please add some'),);   // Implimenting condition using '?' as if and ':' as else statement from 24 - 27
   }
 }
