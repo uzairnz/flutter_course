@@ -19,19 +19,18 @@ class Products extends StatelessWidget {
   }
 
   Widget _buildProductList() {  //Made a saperate widget return type function to return this list view 
- Widget productCard;
+ Widget productCards;
     if (products.length > 0) {
       // Proper method to impliment if statement
-      productCard = ListView.builder(
+      productCards = ListView.builder(
         itemBuilder: _buildProductItem, // context & index number
         itemCount: products.length, // How many products
       );
-    } else {
-      productCard = Center(
-        child: Text('No product found, please add some'),
-      );
+    } 
+    else{
+      productCards =Container(); // If you dont want to render anything just return Container()
     }
-    return productCard;
+    return productCards;
   }
 
   @override
