@@ -25,12 +25,13 @@ class ProductPage extends StatelessWidget {
             Image.asset('assets/food.jpg'),
             Container(padding: EdgeInsets.all(10.0), child: Text('Details!')),
             Container(
-                padding: EdgeInsets.all(10.0),
-                child: RaisedButton(
-                  color: Theme.of(context).accentColor,
-                  child: Text('DELETE'),
-                  onPressed: () => Navigator.pop(context, true),
-                ))
+              padding: EdgeInsets.all(10.0),
+              child: RaisedButton(
+                color: Theme.of(context).accentColor,
+                child: Text('DELETE'),
+                onPressed: () => Navigator.pop(context, true),
+              ),
+            )
           ],
         ),
       ),
