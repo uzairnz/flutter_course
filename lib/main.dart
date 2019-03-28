@@ -17,6 +17,7 @@ class MyApp extends StatefulWidget {
     return _MyAppState();
   }
 }
+
 class _MyAppState extends State<MyApp> {
   List<Map<String, String>> _products = [];
 
@@ -26,9 +27,9 @@ class _MyAppState extends State<MyApp> {
     });
   }
 
-  void _deleteProduct(int index){
+  void _deleteProduct(int index) {
     setState(() {
-     _products.removeAt(index); 
+      _products.removeAt(index);
     });
   }
 
@@ -44,20 +45,27 @@ class _MyAppState extends State<MyApp> {
       routes: {
         '/admin': (BuildContext context) =>
             ProductsAdminPage(), //Use named Routes to perorm Navigation
-        '/': (BuildContext context) => ProductsPage(_products, _addProduct, _deleteProduct) // for home page but must remove home: AuthPage() or any nav from home to others
+        '/': (BuildContext context) => ProductsPage(_products, _addProduct,
+            _deleteProduct) // for home page but must remove home: AuthPage() or any nav from home to others
       },
       onGenerateRoute: (RouteSettings settings) {
         final List<String> pathElements = settings.name.split('/');
-        if (pathElements[0] != ''){
+        if (pathElements[0] != '') {
           return null;
-        } 
-        if(pathElements[1] == 'product'){
-          final int index = int.parse(pathElements[2]);
-        return MaterialPageRoute<bool>(
-                        builder:(BuildContext context) => ProductPage(
-                            _products[index]['title'], _products[index]['image']),
-                            );
         }
+        if (pathElements[1] == 'product') {
+          final int index = int.parse(pathElements[2]);
+          return MaterialPageRoute<bool>(
+            builder: (BuildContext context) => ProductPage(
+                _products[index]['title'], _products[index]['image']),
+          );
+        }
+        return null;
+      },
+      onUnknownRoute: (RouteSettings settings) {
+        return MaterialPageRoute(
+            builder: (BuildContext context) =>
+                ProductsPage(_products, _addProduct, _deleteProduct));
       },
     );
   }
